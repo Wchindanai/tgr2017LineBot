@@ -11,7 +11,7 @@ curl_close($curl);
 $responseText = "ความชื้นของดิน : $jsonResult->humidity \n
 สภาพอากาศ : $jsonResult->weather \n
 ความกดอากาศ : $jsonResult->pressure pha \n
-ความช้ืนในอากาศ : 56 % \n
+ความชื้นในอากาศ : 56 % \n
 ";
 
 //print_r($responseText);
