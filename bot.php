@@ -36,7 +36,7 @@ if (!is_null($events['events'])) {
                 'text' => $responseText
             ];
             $picture = [
-                'type' => 'photo',
+                'type' => 'image',
                 'originalContentUrl' => $imgPath,
                 'previewImageUrl' => $imgPath
             ];
