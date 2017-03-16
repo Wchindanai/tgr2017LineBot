@@ -8,7 +8,7 @@ curl_setopt_array($curl, array(
 $resp = curl_exec($curl);
 // Close request to clear up some resources
 curl_close($curl);
-
+//echo $resp;
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -27,7 +27,7 @@ if (!is_null($events['events'])) {
             // Build message to reply back
             $messages = [
                 'type' => 'text',
-                'text' => $resp
+                'text' => "KUY"
             ];
 
             // Make a POST Request to Messaging API to reply to sender
