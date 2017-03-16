@@ -2,13 +2,15 @@
 $access_token = 'IUh8y7kZ3U4iXhHRN/S48+0fUqRVePqGhlR2wWQ4YDwB17bZmGj6iKWbYjIVC8ZvYobiV0nbt6LT6GBFJWS07CY8D2L8wMK9lzJ379h18JrkMefeCAeOqC3+WBeBlZTjAw/DAvNV8SsnfToIr/9u/QdB04t89/1O/w1cDnyilFU=';
 $curl = curl_init();
 curl_setopt_array($curl, array(
+    CURLOPT_RETURNTRANSFER => 1,
     CURLOPT_URL => 'https://tgr2017day3.herokuapp.com/getdata'
 ));
-// Send the request & save response to $resp
-$resp = curl_exec($curl);
-// Close request to clear up some resources
+$result = curl_exec($curl);
 curl_close($curl);
-//echo $resp;
+
+echo "HelloWOrld".$result;
+
+
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -27,7 +29,7 @@ if (!is_null($events['events'])) {
             // Build message to reply back
             $messages = [
                 'type' => 'text',
-                'text' => "KUY"
+                'text' => $result
             ];
 
             // Make a POST Request to Messaging API to reply to sender
