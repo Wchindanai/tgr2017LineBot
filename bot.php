@@ -8,13 +8,24 @@ curl_setopt_array($curl, array(
 $result = curl_exec($curl);
 $jsonResult = json_decode($result);
 curl_close($curl);
+$img = $jsonResult->picture;
+
+
+//Decode img from base64 && write file
+$decodeImg = base64_decode($img);
+$createFile = fopen("src/recent.jpg", "w") or die("Unable to open file!");
+fwrite($createFile, $decodeImg);
+fclose($createFile);
+
+
+
+
 $responseText = "ความชื้นของดิน : $jsonResult->humidity %
 สภาพอากาศ : $jsonResult->weather
 ความกดอากาศ : $jsonResult->pressure pha
 ความชื้นในอากาศ : 56 %
 อุณหภูมิ : $jsonResult->temperature";
-$imgPath = "https://".$_SERVER['HTTP_HOST']."/src/test.jpg";
-echo $imgPath;
+$imgPath = "https://".$_SERVER['HTTP_HOST']."/src/recent.jpg";
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
