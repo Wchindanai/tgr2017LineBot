@@ -8,10 +8,11 @@ curl_setopt_array($curl, array(
 $result = curl_exec($curl);
 $jsonResult = json_decode($result);
 curl_close($curl);
-$responseText = "ความชื้นของดิน : $jsonResult->humidity \n
-สภาพอากาศ : $jsonResult->weather \n
-ความกดอากาศ : $jsonResult->pressure pha \n
-ความชื้นในอากาศ : 56 % \n
+$responseText = "อุณหภูมิ : $jsonResult->temperature
+สภาพอากาศ : $jsonResult->weather
+ความกดอากาศ : $jsonResult->pressure pha
+ความชื้นของดิน : $jsonResult->humidity
+
 ";
 
 //print_r($responseText);
