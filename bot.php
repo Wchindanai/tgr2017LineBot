@@ -13,7 +13,7 @@ $responseText = "ความชื้นของดิน : $jsonResult->humid
 ความกดอากาศ : $jsonResult->pressure pha
 ความชื้นในอากาศ : 56 %
 อุณหภูมิ : $jsonResult->temperature";
-$imgPath = "https://".$_SERVER['HTTP_HOST']."/test.jpg";
+$imgPath = "https://".$_SERVER['HTTP_HOST']."/src/test.jpg";
 echo $imgPath;
 // Get POST body content
 $content = file_get_contents('php://input');
