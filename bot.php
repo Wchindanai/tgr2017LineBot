@@ -8,17 +8,15 @@ curl_setopt_array($curl, array(
 $result = curl_exec($curl);
 $jsonResult = json_decode($result);
 curl_close($curl);
-$responseText = "อุณหภูมิ : $jsonResult->temperature
+$responseText = "
+ความชื้นของดิน : $jsonResult->humidity %
 สภาพอากาศ : $jsonResult->weather
 ความกดอากาศ : $jsonResult->pressure pha
-ความชื้นของดิน : $jsonResult->humidity
-
+ความชื้นในอากาศ : 56 %
+อุณหภูมิ : $jsonResult->temperature
 ";
-
-//print_r($responseText);
-//echo "HelloWOrld".$result;
-
-
+$imgPath = "https://".$_SERVER['HTTP_HOST']."/test.jpg";
+echo $imgPath;
 // Get POST body content
 $content = file_get_contents('php://input');
 // Parse JSON
@@ -38,6 +36,11 @@ if (!is_null($events['events'])) {
             $messages = [
                 'type' => 'text',
                 'text' => $responseText
+            ];
+            $picture = [
+                'type' => 'photo',
+                'originalContentUrl' => $imgPath,
+                'previewImageUrl' => $imgPath
             ];
 
             // Make a POST Request to Messaging API to reply to sender
