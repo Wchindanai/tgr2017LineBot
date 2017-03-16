@@ -6,9 +6,16 @@ curl_setopt_array($curl, array(
     CURLOPT_URL => 'https://tgr2017day3.herokuapp.com/getdata'
 ));
 $result = curl_exec($curl);
+$jsonResult = json_decode($result);
 curl_close($curl);
+$responseText = "ความชื้นของดิน : $jsonResult->humidity \n
+สภาพอากาศ : $jsonResult->weather \n
+ความกดอากาศ : $jsonResult->pressure pha \n
+ความช้ืนในอากาศ : 56 % \n
+";
 
-echo "HelloWOrld".$result;
+//print_r($responseText);
+//echo "HelloWOrld".$result;
 
 
 // Get POST body content
@@ -29,7 +36,7 @@ if (!is_null($events['events'])) {
             // Build message to reply back
             $messages = [
                 'type' => 'text',
-                'text' => $result
+                'text' => $responseText
             ];
 
             // Make a POST Request to Messaging API to reply to sender
