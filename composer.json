@@ -1,0 +1,12 @@
+{
+    "name": "dream/day3",
+    "authors": [
+        {
+            "name": "Chindanai Wasanachin",
+            "email": "dn.chindanai@gmail.com"
+        }
+    ],
+    "require": {
+        "linecorp/line-bot-sdk": "^1.5"
+    }
+}
