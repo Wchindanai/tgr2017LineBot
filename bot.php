@@ -23,7 +23,7 @@ fclose($createFile);
 $responseText = "ความชื้นของดิน : $jsonResult->humidity %
 สภาพอากาศ : $jsonResult->weather
 ความกดอากาศ : $jsonResult->pressure pha
-ความชื้นในอากาศ : $jsonResult->relative_humidity %
+ความชื้นในอากาศ : $jsonResult->relative_humidity
 อุณหภูมิ : $jsonResult->temperature";
 $imgPath = "https://".$_SERVER['HTTP_HOST']."/src/recent.jpg";
 // Get POST body content
